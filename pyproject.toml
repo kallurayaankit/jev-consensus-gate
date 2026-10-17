@@ -1,0 +1,30 @@
+[project]
+name = "jev-consensus-gate"
+version = "0.1.0"
+description = "Multi-perspective consensus gate using Jev (TypeSafe AI)"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "jevlang>=0.1.0",
+    "python-dotenv>=1.0.0",
+    "typesafe-sdk>=0.1.0",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.6.0",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint.isort]
+known-first-party = ["action", "perspectives", "consensus"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "BLE", "RUF"]
+
+[tool.ruff.lint.per-file-ignores]
+"consensus.py" = ["F401", "E402"]
+"demo.py" = ["E402"]
